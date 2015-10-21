@@ -1,0 +1,23 @@
+{
+    "users":{
+        "550e8400-e29b-11d4-a716-446655440000": {
+            "email": "konrad@replikativ.io",
+            "firstname": "Konrad",
+            "lastname": "Kühne"
+        },
+        "6ba7b810-9dad-11d1-80b4-00c04fd430c8": {
+            "email": "johannes@codingkitchen.io",
+            "firstname": "Johannes",
+            "lastname": "Auer"
+        }
+    },
+    "courses": {
+        "de305d54-75b4-431b-adb2-eb6b9e546014": {
+            "title": "React Basics",
+            "date": "2015-12-24",
+            "chef": "6ba7b810-9dad-11d1-80b4-00c04fd430c8",
+            "batchsize": 5,
+            "participants": ["550e8400-e29b-11d4-a716-446655440000"]
+        }
+    }
+}

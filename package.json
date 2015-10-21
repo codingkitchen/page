@@ -1,0 +1,32 @@
+{
+  "name": "codingkitchen.io",
+  "version": "1.0.0",
+  "description": "Coding Kitchen Website",
+  "main": "src/server/core.js",
+    "scripts": {
+        "start": "node src/server/core.js",
+    "test": "tape test/server/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codingkitchen/page.git"
+  },
+  "keywords": [
+    "javascript",
+    "redux",
+    "react",
+    "node"
+  ],
+  "author": "Johannes Auer, Konrad Kühne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codingkitchen/page/issues"
+  },
+  "homepage": "https://github.com/codingkitchen/page#readme",
+  "devDependencies": {
+    "tape": "^4.2.2"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
