@@ -1,4 +1,4 @@
-var fs = require("fs");
+var fs = require("fs")
 var redis = require("redis")
 var express = require("express")
 var uuid = require("node-uuid")
@@ -7,9 +7,15 @@ var mail = require("sendmail")()
 var client = redis.createClient()
 var app = express()
 
-client.on('connect', function() {
-    console.log('Redis connection opened!');
-});
+client.on('connect', onRedisConnect)
+
+function onRedisConnect() {
+  console.log("Redis connection opend!")
+}
+
+function onRedisReply(err, reply) {
+  console.log(reply)
+}
 
 function readJSON(path, callback) {
   fs.readFile(path, "utf8", onLoad)
@@ -34,26 +40,25 @@ function startAllServices(port) {
   }
 }
 
-function onRedisReply(err, reply) {
-  console.log(reply)
-}
-
-module.exports = {
-  readJSON: readJSON,
-  startAllServices: startAllServices
-}
-
-mail({
-  from: "konrad@codingkitchen.io",
-  to: "johannes.auer@livelycode.com",
-  subject: "Welcome to Coding Kitchen",
-  content: "This is a test mail for our page!",
-  onMailError
-})
-
 function onMailError(err, response) {
   if(err) {
     console.log(err)
   }
   console.dir(response)
 }
+
+mail({
+  from: "konrad@codingkitchen.io",
+  to: "konrad.kuehne@stud.uni-heidelberg.de",
+  subject: "Welcome to Coding Kitchen",
+  content: "This is a test mail for our page!",
+  onMailError
+})
+
+module.exports = {
+  readJSON: readJSON,
+  startAllServices: startAllServices,
+  onRedisReply: onRedisReply
+}
+
+startAllServices(8080)
