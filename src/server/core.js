@@ -4,7 +4,6 @@ var app = express()
 
 /**
  * Reads in JSON file
- * 
  * @param path the path to JSON to be read
  * @return callback based on error and exceptions
  */
@@ -25,6 +24,11 @@ function readJSON(path, callback) {
   }
 }
 
+/**
+ * Starts all server services
+ * @param port server port
+ * @param staticPath server static path
+ */
 function startServer(port, staticPath) {
   app.use(express.static(staticPath))
   
