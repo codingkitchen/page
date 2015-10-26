@@ -2,9 +2,9 @@
   "name": "codingkitchen.io",
   "version": "1.0.0",
   "description": "Coding Kitchen Website",
-  "main": "src/server/core.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node src/server/core.js",
+    "start": "node index.js",
     "test": "tape test/server/*.js"
   },
   "repository": {

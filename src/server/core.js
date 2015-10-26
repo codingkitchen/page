@@ -1,30 +1,32 @@
 var fs = require("fs")
 var express = require("express")
-var mail = require("sendmail")()
-
 var app = express()
 
-function onRedisConnect() {
-  console.log("Redis connection opend!")
-}
-
-function onRedisReply(err, reply) {
-  console.log(reply)
-}
-
+/**
+ * Reads in JSON file
+ * 
+ * @param path the path to JSON to be read
+ * @return callback based on error and exceptions
+ */
 function readJSON(path, callback) {
   fs.readFile(path, "utf8", onLoad)
   function onLoad(err, data) {
     if (err) {
-      return console.log(err)
+      return callback(err)
     }
-    parsedData = JSON.parse(data)
-    callback(parsedData)
+
+    try{
+      parsedData = JSON.parse(data)
+    } catch (exception) {
+      return callback(exception)
+    }
+    
+    return callback(null, parsedData)
   }
 }
 
-function startAllServices(port) {
-  app.use(express.static(__dirname + 'dist'))
+function startServer(port, staticPath) {
+  app.use(express.static(staticPath))
   
   var server = app.listen(port, onServerStart)
 
@@ -36,11 +38,7 @@ function startAllServices(port) {
   }
 }
 
-function onMailError(err, response) {
-  if(err) {
-    console.log(err)
-  }
-  console.dir(response)
+module.exports = {
+  readJSON: readJSON,
+  startServer: startServer
 }
-
-startAllServices(8088)

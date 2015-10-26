@@ -9,3 +9,4 @@ test("json reader", function(t) {
     t.end()
   }
 })
+
