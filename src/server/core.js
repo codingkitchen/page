@@ -1,7 +1,7 @@
 var fs = require("fs")
 var express = require("express")
 var app = express()
-var db = require("database")
+var db = require("./database")
 
 /**
  * Reads in JSON file
