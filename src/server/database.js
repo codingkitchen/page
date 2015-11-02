@@ -5,6 +5,9 @@ var REDIS_PORT = process.env.DB_PORT_6379_TCP_PORT || "6379"
 
 var client = redis.createClient(REDIS_PORT, REDIS_HOST)
 
+console.log("redis host:", REDIS_HOST)
+console.log("redis port:", REDIS_PORT)
+
 function onRedisConnect() {
   console.log("Redis connection opend!")
 }
