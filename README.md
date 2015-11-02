@@ -21,4 +21,4 @@ Run it:
 sh opt/deploy.sh
 ```
 
-Visit the [http://localhost:8080](page)
+Visit the [page](http://localhost:8080)
