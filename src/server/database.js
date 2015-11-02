@@ -6,7 +6,7 @@ var REDIS_PORT = process.env.REDIS_PORT_6379_TCP_PORT || "6379"
 var client = redis.createClient(parseInt(REDIS_PORT), REDIS_HOST)
 
 function onRedisConnect() {
-  console.log("Redis connection opend at: ", REDIS_HOST, ":" , REDIS_PORT)
+  console.log("Redis channel opend to ", REDIS_HOST, "on port" , REDIS_PORT)
 }
 
 function storeUser(user, callback) {
