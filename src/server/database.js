@@ -1,7 +1,9 @@
 var redis = require("redis")
 var uuid = require("node-uuid")
+var REDIS_HOST = process.env.DB_PORT_6379_TCP_ADDR || "127.0.0.1"
+var REDIS_PORT = process.env.DB_PORT_6379_TCP_PORT || "6379"
 
-var client = redis.createClient()
+var client = redis.createClient(REDIS_PORT, REDIS_HOST)
 
 function onRedisConnect() {
   console.log("Redis connection opend!")
