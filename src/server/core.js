@@ -1,6 +1,7 @@
 var fs = require("fs")
 var express = require("express")
 var app = express()
+var db = require("database")
 
 /**
  * Reads in JSON file
@@ -32,6 +33,9 @@ function readJSON(path, callback) {
 function startServer(port, staticPath) {
   app.use(express.static(staticPath))
   
+  /* Accept post request at /new-user*/
+  app.post("/user", onPost)
+  
   var server = app.listen(port, onServerStart)
 
   function onServerStart() {
@@ -39,6 +43,12 @@ function startServer(port, staticPath) {
     var port = server.address().port
     
     console.log('Server listening at http://%s:%s', host, port)
+  }
+
+  function onPost(req, res) {
+    console.log("Incoming POST request: ", req)
+    console.log("DB:", db.storeUser(req))
+    res.send("Thanks for signing up!")
   }
 }
 
