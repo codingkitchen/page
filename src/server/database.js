@@ -16,10 +16,13 @@ function createRedisClient() {
 }
 
 var client = createRedisClient()
-var client = redis.createClient(parseInt(REDIS_PORT), REDIS_HOST)
 
 function onRedisConnect() {
-  console.log("Redis channel opend to ", REDIS_HOST, "on port" , REDIS_PORT)
+  if(REDIS_URL) {
+    console.log("Redis channel opened on to HEROKU REDIS ", REDIS_URL)
+  } else {
+    console.log("Redis channel opened to local ", REDIS_HOST, "on port" , REDIS_PORT)
+  }
 }
 
 function storeUser(user, callback) {
