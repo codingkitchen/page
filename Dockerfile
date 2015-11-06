@@ -7,6 +7,7 @@ RUN     rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-
 # Install Node.js and npm
 RUN     yum install -y npm git-core wget
 
+
 # Clone and build project
 RUN git clone https://github.com/codingkitchen/page.git /opt/page
 RUN cd /opt/page; npm install
