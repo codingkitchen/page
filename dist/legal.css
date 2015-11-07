@@ -1,0 +1,19 @@
+
+@import url("reset.css");
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+html {
+  font-family: "Roboto";
+}
+
+h1 {
+  margin-top: 160px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+p {
+  text-align: center;
+  font-size: 18px;
+}
