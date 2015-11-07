@@ -8,12 +8,12 @@ html {
 
 h1 {
   margin-top: 160px;
-  margin-bottom: 20px;
   text-align: center;
   font-size: 24px;
 }
 
 p {
+  margin-top: 10px;
   text-align: center;
   font-size: 18px;
 }
